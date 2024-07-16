@@ -1,55 +1,190 @@
-import 'dart:ui';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
-void main() {
-  runApp(const MyApp());
-}
+import 'package:flutter/widgets.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
- 
-  final String title;
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
-
-
+class _LoginScreenState extends State<LoginScreen> {
+  bool _obscuretext = true;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body : Stack(
+    return SafeArea(
+        child: Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.brown[200],
+      body: Column(
         children: [
-                const RiveAnimation.asset("assets/Riveassets/new_file.riv"),
-                Positioned.fill(child: 
-                BackdropFilter(filter: ImageFilter.blur(sigmaX: 20, sigmaY: 10),
-                child: const SizedBox(),
-                ))
+          Padding(
+            padding: const EdgeInsets.all(65.0),
+            child: Image.asset('assets/Images/hello_logo.png'),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.brown[700],
+                  ),
+                  hintText: "E M A I L",
+                  hintStyle: TextStyle(color: Colors.brown[700]),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: Colors.brown, width: 2),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                obscureText: _obscuretext,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.brown[700],
+                  ),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _obscuretext = !_obscuretext;
+                      });
+                    },
+                    child: Icon(
+                      _obscuretext ? Icons.visibility : Icons.visibility_off,
+                      color: Colors.brown[700],
+                    ),
+                  ),
+                  hintText: "P A S S W O R D",
+                  hintStyle: TextStyle(color: Colors.brown[700]),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: Colors.brown, width: 5),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Expanded(
+              child: Row(
+                children: [
+                  Text(
+                    "Don't have am account? ",
+                    style: TextStyle(fontSize: 20, color: Colors.brown[700]),
+                  ),
+                  const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              "Forgot Password",
+              style: TextStyle(fontSize: 20, color: Colors.brown[700]),
+            ),
+          ),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.brown[900]),
+                    elevation: const MaterialStatePropertyAll(50)),
+                onPressed: null,
+                child: const Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 95),
+                      child: Text(
+                        "Sign In",
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      ),
+                    )
+                  ],
+                )),
+          )),
+          const Expanded(
+              child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.black),
+                    elevation: MaterialStatePropertyAll(50)),
+                onPressed: null,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Icon(
+                        Icons.g_mobiledata,
+                        color: Colors.orange,
+                      ),
+                    ),
+                    Text(
+                      "Sign In with Google",
+                      style: TextStyle(color: Colors.orange),
+                    )
+                  ],
+                )),
+          )),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.black),
+                    elevation: MaterialStatePropertyAll(50)),
+                onPressed: null,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Icon(
+                        Icons.facebook,
+                        color: Colors.blue[500],
+                      ),
+                    ),
+                    const Text(
+                      "Sign In with Facebook",
+                      style: TextStyle(color: Colors.blue),
+                    )
+                  ],
+                )),
+          ))
         ],
-      )
-    );
+      ),
+    ));
   }
 }
