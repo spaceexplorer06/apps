@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 )),
                             ),
-              Row(children: [
+              const Row(children: [
                 Icon(Icons.g_mobiledata),
               ],)
             ],),
