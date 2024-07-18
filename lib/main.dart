@@ -341,15 +341,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                                               _email.text;
                                                           final password =
                                                               _password.text;
-                                                          final userCredential =
-                                                              await FirebaseAuth
-                                                                  .instance
-                                                                  .createUserWithEmailAndPassword(
-                                                                      email:
-                                                                          email,
-                                                                      password:
-                                                                          password);
-                                                          print(userCredential);
+                                                          // final userCredential =
+                                                          //    / await FirebaseAuth
+                                                          //         .instance
+                                                          //         .createUserWithEmailAndPassword(
+                                                          //             email:
+                                                          //                 email,
+                                                          //             password:
+                                                          //                 password);
+                                                          // print(userCredential);
                                                         },
                                                         child: const Padding(
                                                           padding: EdgeInsets
