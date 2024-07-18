@@ -142,7 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         context: context,
                         pageBuilder: (context, _, __) => Center(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 20),
                             child: Container(
                               height: 620,
                               decoration: BoxDecoration(
@@ -154,7 +155,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 body: Column(
                                   children: [
                                     const Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 20),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 20),
                                       child: Text(
                                         "Sign Up",
                                         style: TextStyle(
@@ -174,7 +176,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                           hintText: "E M A I L",
                                           hintStyle: const TextStyle(
-                                              color: Color.fromARGB(255, 51, 17, 4)),
+                                              color: Color.fromARGB(
+                                                  255, 51, 17, 4)),
                                           border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(20),
@@ -185,8 +188,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.symmetric( horizontal: 12,
-                                          vertical: 20),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12, vertical: 20),
                                       child: TextField(
                                         decoration: InputDecoration(
                                           prefixIcon: const Icon(
@@ -196,7 +199,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                           hintText: "P A S S W O R D",
                                           hintStyle: const TextStyle(
-                                              color: Color.fromARGB(255, 51, 17, 4)),
+                                              color: Color.fromARGB(
+                                                  255, 51, 17, 4)),
                                           border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(20),
@@ -206,6 +210,64 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                     ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ElevatedButton(
+                                          style: ButtonStyle(
+                                              minimumSize:
+                                                  MaterialStateProperty.all(
+                                                      const Size(10, 60)),
+                                              backgroundColor:
+                                                  MaterialStatePropertyAll(
+                                                      Colors.brown[900]),
+                                              elevation:
+                                                  const MaterialStatePropertyAll(
+                                                      10)),
+                                          onPressed: null,
+                                          child: const Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 95,
+                                            ),
+                                            child: Text(
+                                              "Sign Up",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.symmetric(vertical: 20),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Divider(
+                                              thickness: 0.5,
+                                              color:
+                                                  Color.fromARGB(255, 46, 27, 20),
+                                            ),
+                                          ),
+                                          Text("Or Sign Up with Email or Google"),
+                                          Expanded(
+                                            child: Divider(
+                                                thickness: 0.5,
+                                                color: Color.fromARGB(
+                                                    255, 46, 27, 20)),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.email, size: 50,),
+                                          Icon(Icons.g_mobiledata, size: 70,),
+                                          Icon(Icons.facebook, size: 50,)
+                                        ],
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
